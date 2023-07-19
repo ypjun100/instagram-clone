@@ -18,6 +18,12 @@ public class UserController {
         return "non-user";
     }
 
+    @PostMapping("sign-out")
+    public String signOut() {
+        // 로그 아웃
+        return "signed out";
+    }
+
     @PostMapping("sign-up")
     public String signUp(@RequestParam String id, @RequestParam String password, @RequestParam String name) {
         int signupResult = userService.enroll(id, password, name);
