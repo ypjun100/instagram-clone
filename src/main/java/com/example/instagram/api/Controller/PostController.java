@@ -24,8 +24,8 @@ public class PostController {
     }
 
     @PostMapping("post/write")
-    public long write(@RequestParam String photos, @RequestParam String description) {
-        return postService.write(photos, description);
+    public long write(@RequestParam String user_id, @RequestParam String photos, @RequestParam String description) {
+        return postService.write(user_id, photos, description);
     }
 
     @PutMapping("post/{id}")

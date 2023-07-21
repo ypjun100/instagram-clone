@@ -1,7 +1,9 @@
 package com.example.instagram.api.Service;
 
 import com.example.instagram.api.Entity.Post;
+import com.example.instagram.api.Entity.User;
 import com.example.instagram.api.Repository.PostRepository;
+import com.example.instagram.api.Repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,9 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class PostService {
     private final PostRepository postRepository;
+
+    private final UserService userService;
+    private final UserRepository userRepository;
 
     public List<Post> retrieveAll() {
         return postRepository.findAll();
@@ -27,13 +32,19 @@ public class PostService {
     }
 
     @Transactional
-    public long write(String photos, String description) {
-        Post newPost = new Post();
-        newPost.setPhotos(photos);
-        newPost.setDescription(description);
-        postRepository.save(newPost);
+    public long write(String user_id, String photos, String description) {
+        Optional<User> writer = userRepository.findById(user_id);
 
-        return newPost.getId();
+        if (!writer.isEmpty()) {
+            Post newPost = new Post();
+            newPost.setUser(writer.get());
+            newPost.setPhotos(photos);
+            newPost.setDescription(description);
+            postRepository.save(newPost);
+            return newPost.getId();
+        }
+
+        return -1;
     }
 
     @Transactional
