@@ -16,7 +16,6 @@ import java.util.Optional;
 public class PostService {
     private final PostRepository postRepository;
 
-    private final UserService userService;
     private final UserRepository userRepository;
 
     public List<Post> retrieveAll() {
@@ -60,7 +59,7 @@ public class PostService {
     }
 
     @Transactional
-    public Boolean delete(long id) {
+    public boolean delete(long id) {
         if (postRepository.existsById(id)) {
             postRepository.deleteById(id);
             return true;

@@ -1,5 +1,6 @@
 package com.example.instagram.api.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ public class User {
     private String id;
 
     @Column(length = 20, nullable = false)
+    @JsonIgnore
     private String password;
 
     @Column(length = 20, nullable = false)

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Write comment</title>
+</head>
+<body>
+<a href="/">Back</a>
+<form action="/api/comment/write" method="post">
+    <p>작성자 id</p>
+    <input name="user_id" type="text" placeholder="사용자 id"/>
+    <p>댓글 내용</p>
+    <input name="content" type="text" placeholder="댓글 내용"/>
+    <p>작성글 id</p>
+    <textarea name="post_id" placeholder="설명" maxlength="200"></textarea>
+    <br><br>
+    <input type="submit" placeholder="Publish"/>
+</form>
+</body>
+</html>

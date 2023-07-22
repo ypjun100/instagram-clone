@@ -13,7 +13,7 @@ import java.util.Optional;
 public class UserService {
     private final UserRepository userRepository;
 
-    public Boolean signIn(String id, String password) {
+    public boolean signIn(String id, String password) {
         Optional<User> _user = userRepository.findById(id);
 
         if (_user.isEmpty()) return false;

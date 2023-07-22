@@ -29,7 +29,7 @@ public class PostController {
     }
 
     @PutMapping("post/{id}")
-    public long update(@PathVariable long id, String photos, String description) {
+    public long update(@PathVariable long id, @RequestParam String photos, @RequestParam String description) {
         return postService.update(id, photos, description);
     }
 

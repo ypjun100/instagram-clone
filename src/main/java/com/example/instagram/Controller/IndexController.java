@@ -20,6 +20,9 @@ public class IndexController {
         return "signup";
     }
 
-    @GetMapping("/write")
-    public String write() { return "write"; }
+    @GetMapping("/post/write")
+    public String writePost() { return "post/write"; }
+
+    @GetMapping("/comment/write")
+    public String writeComment() { return "comment/write"; }
 }
